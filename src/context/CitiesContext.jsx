@@ -7,7 +7,10 @@ import {
 } from "react";
 
 const CitiesContext = createContext();
-const BASE_URL = "http://localhost:8000";
+const BASE_URL =
+  import.meta.env.MODE === "production"
+    ? "/travelapp/data/cities.json"
+    : "http://localhost:8000";
 
 const initialState = {
   cities: [],

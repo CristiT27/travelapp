@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import eslint from "vite-plugin-eslint";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), eslint()],
-  // base: "/travelapp/",
-});
+  base: command === "build" ? "/travelapp/" : "/",
+}));
